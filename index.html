@@ -1,18 +1,673 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>autism-advocacy-showcase</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
-    <meta property="og:image" content="/og-image.png" />
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autism Foundation</title>
+    <!-- In Laravel, you would use asset() helper: <link rel="stylesheet" href="{{ asset('css/styles.css') }}"> -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include Tailwind CDN for demo purposes (in Laravel you would set up Tailwind properly) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'autism-blue': '#33C3F0',
+                        'autism-purple': '#9b87f5',
+                        'autism-lightPurple': '#E5DEFF',
+                        'autism-softBlue': '#D3E4FD',
+                        'autism-softGreen': '#F2FCE2'
+                    },
+                    keyframes: {
+                        'fade-in': {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        'pulse-slow': {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.8' }
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fade-in 0.7s ease-out',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse-slow 4s ease-in-out infinite'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen bg-white">
+    <!-- Header/Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out px-6 py-4 bg-transparent" id="navbar">
+        <nav class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="/" class="text-2xl font-semibold text-autism-purple">
+                Autism Foundation
+            </a>
+            
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="/" class="story-link text-gray-800 font-medium">Home</a>
+                <a href="/" class="story-link text-gray-800 font-medium">About</a>
+                <a href="/" class="story-link text-gray-800 font-medium">Resources</a>
+                <a href="/" class="story-link text-gray-800 font-medium">Shop</a>
+                <a href="/" class="story-link text-gray-800 font-medium">Contact</a>
+            </div>
+            
+            <button class="hidden md:block px-5 py-2 rounded-full bg-autism-purple text-white hover:bg-opacity-90 transition-colors">
+                Donate Now
+            </button>
+            
+            <button class="md:hidden text-gray-800" id="mobile-menu-button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </nav>
+    </header>
 
-  <body>
-    <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center overflow-hidden" style="background: linear-gradient(109.6deg, rgba(223,234,247,1) 11.2%, rgba(244,248,252,1) 91.1%)">
+        <!-- Decorative circles -->
+        <div class="absolute top-1/4 right-[10%] w-64 h-64 rounded-full bg-autism-lightPurple/40 blur-xl animate-float"></div>
+        <div class="absolute bottom-1/4 left-[5%] w-48 h-48 rounded-full bg-autism-softBlue/30 blur-xl animate-pulse-slow"></div>
+        
+        <div class="container mx-auto px-6 py-16 pt-32 md:pt-16 flex flex-col md:flex-row items-center z-10">
+            <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10 animate-fade-in">
+                <div class="inline-block px-3 py-1 mb-4 rounded-full bg-autism-softGreen text-sm font-medium text-autism-purple">
+                    Understanding Together
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                    Supporting the <span class="bg-clip-text text-transparent bg-gradient-to-r from-autism-purple to-autism-blue">Autism Community</span> with Compassion
+                </h1>
+                <p class="text-gray-600 text-lg mb-8 max-w-lg">
+                    Fostering understanding, providing resources, and creating a world where everyone on the autism spectrum can thrive.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="px-8 py-3 rounded-full bg-autism-purple text-white font-medium hover:bg-opacity-90 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                        Get Involved
+                    </button>
+                    <button class="px-8 py-3 rounded-full bg-white text-autism-purple font-medium border border-autism-purple hover:bg-autism-lightPurple transition-all">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+            
+            <div class="md:w-1/2 relative animate-fade-in">
+                <div class="relative z-10 bg-white rounded-2xl shadow-xl overflow-hidden transition-transform duration-200 hover:scale-105">
+                    <img 
+                        src="https://images.unsplash.com/photo-1618160702438-9b02ab6515c9" 
+                        alt="Children playing together" 
+                        class="w-full h-auto"
+                        style="max-height: 500px; object-fit: cover"
+                    />
+                </div>
+                <div class="absolute -bottom-6 -right-6 w-64 h-64 bg-autism-purple/10 rounded-full blur-xl -z-10"></div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 right-0">
+            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,96L80,85.3C160,75,320,53,480,53.3C640,53,800,75,960,80C1120,85,1280,75,1360,69.3L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z" 
+                    fill="#FFFFFF"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section class="py-20 bg-white" style="background: linear-gradient(to bottom, #ffffff, #f9f5ff, #ffffff)">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate-fade-in">
+                <div class="inline-block px-3 py-1 mb-4 rounded-full bg-autism-lightPurple text-sm font-medium text-autism-purple">
+                    Join Us
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Activities</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Discover a range of engaging activities designed to support, educate, and empower individuals across the autism spectrum.
+                </p>
+            </div>
+            
+            <div class="relative px-4 animate-fade-in">
+                <!-- Slider navigation -->
+                <button 
+                    id="prev-slide"
+                    class="absolute left-0 top-1/2 z-10 -translate-y-1/2 -translate-x-4 md:-translate-x-6 w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-lg opacity-50 cursor-not-allowed"
+                    aria-label="Previous slide"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-gray-700">
+                        <path d="m15 18-6-6 6-6"/>
+                    </svg>
+                </button>
+                
+                <button 
+                    id="next-slide"
+                    class="absolute right-0 top-1/2 z-10 -translate-y-1/2 translate-x-4 md:translate-x-6 w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-lg opacity-100 hover:bg-gray-50"
+                    aria-label="Next slide"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-gray-700">
+                        <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                </button>
+                
+                <!-- Activity slider -->
+                <div class="overflow-hidden" id="slider-container">
+                    <div 
+                        class="flex transition-transform duration-500 ease-in-out"
+                        id="slider-track"
+                    >
+                        <!-- Activity 1 -->
+                        <div class="w-full md:w-1/2 xl:w-1/3 flex-shrink-0 px-4" style="flex: 0 0 100%;">
+                            <div class="bg-white rounded-xl shadow-md overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]">
+                                <div class="relative h-48 overflow-hidden">
+                                    <img 
+                                        src="https://images.unsplash.com/photo-1607453998774-d533f65dac99" 
+                                        alt="Sensory-Friendly Workshops"
+                                        class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                                    />
+                                    <div class="absolute top-4 left-4 px-3 py-1 rounded-full bg-autism-purple/90 text-white text-xs font-medium">
+                                        Every Saturday
+                                    </div>
+                                </div>
+                                
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-3 text-gray-800">Sensory-Friendly Workshops</h3>
+                                    <p class="text-gray-600 mb-5 line-clamp-3">
+                                        Interactive workshops designed for individuals with sensory sensitivities, providing a safe and comfortable environment to learn and engage.
+                                    </p>
+                                    
+                                    <button class="px-5 py-2 rounded-full bg-autism-softBlue text-autism-blue font-medium hover:bg-autism-blue hover:text-white transition-colors">
+                                        Read More
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Activity 2 -->
+                        <div class="w-full md:w-1/2 xl:w-1/3 flex-shrink-0 px-4" style="flex: 0 0 100%;">
+                            <div class="bg-white rounded-xl shadow-md overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]">
+                                <div class="relative h-48 overflow-hidden">
+                                    <img 
+                                        src="https://images.unsplash.com/photo-1580060839134-75a5edca2e99" 
+                                        alt="Art Therapy Sessions"
+                                        class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                                    />
+                                    <div class="absolute top-4 left-4 px-3 py-1 rounded-full bg-autism-purple/90 text-white text-xs font-medium">
+                                        Tuesdays & Thursdays
+                                    </div>
+                                </div>
+                                
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-3 text-gray-800">Art Therapy Sessions</h3>
+                                    <p class="text-gray-600 mb-5 line-clamp-3">
+                                        Creative expression sessions that help individuals on the spectrum communicate emotions and develop fine motor skills through various art forms.
+                                    </p>
+                                    
+                                    <button class="px-5 py-2 rounded-full bg-autism-softBlue text-autism-blue font-medium hover:bg-autism-blue hover:text-white transition-colors">
+                                        Read More
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Activity 3 -->
+                        <div class="w-full md:w-1/2 xl:w-1/3 flex-shrink-0 px-4" style="flex: 0 0 100%;">
+                            <div class="bg-white rounded-xl shadow-md overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]">
+                                <div class="relative h-48 overflow-hidden">
+                                    <img 
+                                        src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a" 
+                                        alt="Family Support Groups"
+                                        class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                                    />
+                                    <div class="absolute top-4 left-4 px-3 py-1 rounded-full bg-autism-purple/90 text-white text-xs font-medium">
+                                        First Monday of each month
+                                    </div>
+                                </div>
+                                
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-3 text-gray-800">Family Support Groups</h3>
+                                    <p class="text-gray-600 mb-5 line-clamp-3">
+                                        Regular meetings where families can share experiences, challenges, and solutions while building a supportive community network.
+                                    </p>
+                                    
+                                    <button class="px-5 py-2 rounded-full bg-autism-softBlue text-autism-blue font-medium hover:bg-autism-blue hover:text-white transition-colors">
+                                        Read More
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Activity 4 -->
+                        <div class="w-full md:w-1/2 xl:w-1/3 flex-shrink-0 px-4" style="flex: 0 0 100%;">
+                            <div class="bg-white rounded-xl shadow-md overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]">
+                                <div class="relative h-48 overflow-hidden">
+                                    <img 
+                                        src="https://images.unsplash.com/photo-1556711905-ebe6437d200b" 
+                                        alt="Life Skills Training"
+                                        class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                                    />
+                                    <div class="absolute top-4 left-4 px-3 py-1 rounded-full bg-autism-purple/90 text-white text-xs font-medium">
+                                        Wednesdays
+                                    </div>
+                                </div>
+                                
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-3 text-gray-800">Life Skills Training</h3>
+                                    <p class="text-gray-600 mb-5 line-clamp-3">
+                                        Practical sessions focused on developing essential daily living and social skills for independent living and community integration.
+                                    </p>
+                                    
+                                    <button class="px-5 py-2 rounded-full bg-autism-softBlue text-autism-blue font-medium hover:bg-autism-blue hover:text-white transition-colors">
+                                        Read More
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Activity 5 -->
+                        <div class="w-full md:w-1/2 xl:w-1/3 flex-shrink-0 px-4" style="flex: 0 0 100%;">
+                            <div class="bg-white rounded-xl shadow-md overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]">
+                                <div class="relative h-48 overflow-hidden">
+                                    <img 
+                                        src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8" 
+                                        alt="Autism Awareness Walks"
+                                        class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                                    />
+                                    <div class="absolute top-4 left-4 px-3 py-1 rounded-full bg-autism-purple/90 text-white text-xs font-medium">
+                                        Quarterly Events
+                                    </div>
+                                </div>
+                                
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-3 text-gray-800">Autism Awareness Walks</h3>
+                                    <p class="text-gray-600 mb-5 line-clamp-3">
+                                        Community events that raise awareness about autism while promoting inclusion and celebrating neurodiversity through organized walks.
+                                    </p>
+                                    
+                                    <button class="px-5 py-2 rounded-full bg-autism-softBlue text-autism-blue font-medium hover:bg-autism-blue hover:text-white transition-colors">
+                                        Read More
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slider indicators -->
+                <div class="flex justify-center mt-8 space-x-2" id="slider-indicators">
+                    <button class="w-6 h-2.5 rounded-full bg-autism-purple" aria-label="Go to slide 1" data-index="0"></button>
+                    <button class="w-2.5 h-2.5 rounded-full bg-gray-300" aria-label="Go to slide 2" data-index="1"></button>
+                    <button class="w-2.5 h-2.5 rounded-full bg-gray-300" aria-label="Go to slide 3" data-index="2"></button>
+                    <button class="w-2.5 h-2.5 rounded-full bg-gray-300" aria-label="Go to slide 4" data-index="3"></button>
+                    <button class="w-2.5 h-2.5 rounded-full bg-gray-300" aria-label="Go to slide 5" data-index="4"></button>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10 animate-fade-in">
+                <button class="px-8 py-3 rounded-full bg-gradient-to-r from-autism-purple to-autism-blue text-white font-medium shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1">
+                    View All Activities
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Grid Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate-fade-in">
+                <div class="inline-block px-3 py-1 mb-4 rounded-full bg-autism-softBlue text-sm font-medium text-autism-blue">
+                    Our Shop
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Support Our Cause</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Every purchase helps fund our programs and initiatives for the autism community.
+                </p>
+            </div>
+            
+            <!-- T-Shirts Section -->
+            <div class="mb-16 animate-fade-in">
+                <div class="flex justify-between items-center mb-8">
+                    <h3 class="text-2xl font-semibold">Awareness T-Shirts</h3>
+                    <a href="#" class="text-autism-purple font-medium hover:underline">View all</a>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- T-Shirt 1 -->
+                    <div class="relative bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl product-card">
+                        <div class="relative overflow-hidden h-[280px]">
+                            <img 
+                                src="https://images.unsplash.com/photo-1582562124811-c09040d0a901" 
+                                alt="Autism Awareness Tee"
+                                class="w-full h-full object-cover transition-transform duration-700 product-image"
+                            />
+                            <div class="absolute inset-0 bg-black bg-opacity-0 transition-opacity duration-300 product-overlay"></div>
+                            
+                            <div class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-medium" 
+                                style="background-color: #E5DEFF; color: #9b87f5;">
+                                T-Shirt
+                            </div>
+                        </div>
+                        
+                        <div class="p-5">
+                            <h3 class="text-lg font-semibold mb-1 truncate">Autism Awareness Tee</h3>
+                            <p class="text-gray-500 text-sm mb-3 line-clamp-2">Comfortable cotton t-shirt with autism awareness design</p>
+                            
+                            <div class="flex justify-between items-center">
+                                <span class="text-autism-purple font-bold">$24.99</span>
+                                
+                                <button class="px-4 py-2 rounded-full bg-autism-softBlue text-autism-blue text-sm font-medium hover:bg-autism-blue hover:text-white transition-colors">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- T-Shirt 2 -->
+                    <div class="relative bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl product-card">
+                        <div class="relative overflow-hidden h-[280px]">
+                            <img 
+                                src="https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99" 
+                                alt="Spectrum Support Shirt"
+                                class="w-full h-full object-cover transition-transform duration-700 product-image"
+                            />
+                            <div class="absolute inset-0 bg-black bg-opacity-0 transition-opacity duration-300 product-overlay"></div>
+                            
+                            <div class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-medium" 
+                                style="background-color: #E5DEFF; color: #9b87f5;">
+                                T-Shirt
+                            </div>
+                        </div>
+                        
+                        <div class="p-5">
+                            <h3 class="text-lg font-semibold mb-1 truncate">Spectrum Support Shirt</h3>
+                            <p class="text-gray-500 text-sm mb-3 line-clamp-2">Premium quality shirt promoting autism awareness and support</p>
+                            
+                            <div class="flex justify-between items-center">
+                                <span class="text-autism-purple font-bold">$29.99</span>
+                                
+                                <button class="px-4 py-2 rounded-full bg-autism-softBlue text-autism-blue text-sm font-medium hover:bg-autism-blue hover:text-white transition-colors">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- T-Shirt 3 -->
+                    <div class="relative bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl product-card">
+                        <div class="relative overflow-hidden h-[280px]">
+                            <img 
+                                src="https://images.unsplash.com/photo-1576566588028-4147f3842f27" 
+                                alt="Neurodiversity Champion"
+                                class="w-full h-full object-cover transition-transform duration-700 product-image"
+                            />
+                            <div class="absolute inset-0 bg-black bg-opacity-0 transition-opacity duration-300 product-overlay"></div>
+                            
+                            <div class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-medium" 
+                                style="background-color: #E5DEFF; color: #9b87f5;">
+                                T-Shirt
+                            </div>
+                        </div>
+                        
+                        <div class="p-5">
+                            <h3 class="text-lg font-semibold mb-1 truncate">Neurodiversity Champion</h3>
+                            <p class="text-gray-500 text-sm mb-3 line-clamp-2">Celebrate neurodiversity with this comfortable and stylish tee</p>
+                            
+                            <div class="flex justify-between items-center">
+                                <span class="text-autism-purple font-bold">$22.99</span>
+                                
+                                <button class="px-4 py-2 rounded-full bg-autism-softBlue text-autism-blue text-sm font-medium hover:bg-autism-blue hover:text-white transition-colors">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- T-Shirt 4 -->
+                    <div class="relative bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl product-card">
+                        <div class="relative overflow-hidden h-[280px]">
+                            <img 
+                                src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9" 
+                                alt="Acceptance Matters Tee"
+                                class="w-full h-full object-cover transition-transform duration-700 product-image"
+                            />
+                            <div class="absolute inset-0 bg-black bg-opacity-0 transition-opacity duration-300 product-overlay"></div>
+                            
+                            <div class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-medium" 
+                                style="background-color: #E5DEFF; color: #9b87f5;">
+                                T-Shirt
+                            </div>
+                        </div>
+                        
+                        <div class="p-5">
+                            <h3 class="text-lg font-semibold mb-1 truncate">Acceptance Matters Tee</h3>
+                            <p class="text-gray-500 text-sm mb-3 line-clamp-2">Spread the message of acceptance with this premium t-shirt</p>
+                            
+                            <div class="flex justify-between items-center">
+                                <span class="text-autism-purple font-bold">$26.99</span>
+                                
+                                <button class="px-4 py-2 rounded-full bg-autism-softBlue text-autism-blue text-sm font-medium hover:bg-autism-blue hover:text-white transition-colors">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Books Section -->
+            <div class="animate-fade-in">
+                <div class="flex justify-between items-center mb-8">
+                    <h3 class="text-2xl font-semibold">Educational Books</h3>
+                    <a href="#" class="text-autism-blue font-medium hover:underline">View all</a>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Book 1 -->
+                    <div class="relative bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl product-card">
+                        <div class="relative overflow-hidden h-[280px]">
+                            <img 
+                                src="https://images.unsplash.com/photo-1544947950-fa07a98d237f" 
+                                alt="Understanding Autism"
+                                class="w-full h-full object-cover transition-transform duration-700 product-image"
+                            />
+                            <div class="absolute inset-0 bg-black bg-opacity-0 transition-opacity duration-300 product-overlay"></div>
+                            
+                            <div class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-medium" 
+                                style="background-color: #D3E4FD; color: #33C3F0;">
+                                Book
+                            </div>
+                        </div>
+                        
+                        <div class="p-5">
+                            <h3 class="text-lg font-semibold mb-1 truncate">Understanding Autism</h3>
+                            <p class="text-gray-500 text-sm mb-3 line-clamp-2">A comprehensive guide to understanding autism spectrum disorder</p>
+                            
+                            <div class="flex justify-between items-center">
+                                <span class="text-autism-purple font-bold">$19.99</span>
+                                
+                                <button class="px-4 py-2 rounded-full bg-autism-softBlue text-autism-blue text-sm font-medium hover:bg-autism-blue hover:text-white transition-colors">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Book 2 -->
+                    <div class="relative bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl product-card">
+                        <div class="relative overflow-hidden h-[280px]">
+                            <img 
+                                src="https://images.unsplash.com/photo-1512820790803-83ca734da794" 
+                                alt="Spectrum Stories"
+                                class="w-full h-full object-cover transition-transform duration-700 product-image"
+                            />
+                            <div class="absolute inset-0 bg-black bg-opacity-0 transition-opacity duration-300 product-overlay"></div>
+                            
+                            <div class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-medium" 
+                                style="background-color: #D3E4FD; color: #33C3F0;">
+                                Book
+                            </div>
+                        </div>
+                        
+                        <div class="p-5">
+                            <h3 class="text-lg font-semibold mb-1 truncate">Spectrum Stories</h3>
+                            <p class="text-gray-500 text-sm mb-3 line-clamp-2">Collection of inspiring stories from individuals on the autism spectrum</p>
+                            
+                            <div class="flex justify-between items-center">
+                                <span class="text-autism-purple font-bold">$15.99</span>
+                                
+                                <button class="px-4 py-2 rounded-full bg-autism-softBlue text-autism-blue text-sm font-medium hover:bg-autism-blue hover:text-white transition-colors">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Book 3 -->
+                    <div class="relative bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl product-card">
+                        <div class="relative overflow-hidden h-[280px]">
+                            <img 
+                                src="https://images.unsplash.com/photo-1553729459-efe14ef6055d" 
+                                alt="Autism Parenting Guide"
+                                class="w-full h-full object-cover transition-transform duration-700 product-image"
+                            />
+                            <div class="absolute inset-0 bg-black bg-opacity-0 transition-opacity duration-300 product-overlay"></div>
+                            
+                            <div class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-medium" 
+                                style="background-color: #D3E4FD; color: #33C3F0;">
+                                Book
+                            </div>
+                        </div>
+                        
+                        <div class="p-5">
+                            <h3 class="text-lg font-semibold mb-1 truncate">Autism Parenting Guide</h3>
+                            <p class="text-gray-500 text-sm mb-3 line-clamp-2">Essential guide for parents of children with autism</p>
+                            
+                            <div class="flex justify-between items-center">
+                                <span class="text-autism-purple font-bold">$24.99</span>
+                                
+                                <button class="px-4 py-2 rounded-full bg-autism-softBlue text-autism-blue text-sm font-medium hover:bg-autism-blue hover:text-white transition-colors">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Book 4 -->
+                    <div class="relative bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl product-card">
+                        <div class="relative overflow-hidden h-[280px]">
+                            <img 
+                                src="https://images.unsplash.com/photo-1589998059171-988d887df646" 
+                                alt="Sensory Solutions"
+                                class="w-full h-full object-cover transition-transform duration-700 product-image"
+                            />
+                            <div class="absolute inset-0 bg-black bg-opacity-0 transition-opacity duration-300 product-overlay"></div>
+                            
+                            <div class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-medium" 
+                                style="background-color: #D3E4FD; color: #33C3F0;">
+                                Book
+                            </div>
+                        </div>
+                        
+                        <div class="p-5">
+                            <h3 class="text-lg font-semibold mb-1 truncate">Sensory Solutions</h3>
+                            <p class="text-gray-500 text-sm mb-3 line-clamp-2">Practical solutions for sensory processing challenges</p>
+                            
+                            <div class="flex justify-between items-center">
+                                <span class="text-autism-purple font-bold">$18.99</span>
+                                
+                                <button class="px-4 py-2 rounded-full bg-autism-softBlue text-autism-blue text-sm font-medium hover:bg-autism-blue hover:text-white transition-colors">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-6">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Autism Foundation</h3>
+                    <p class="text-gray-400 mb-4">
+                        Supporting individuals and families affected by autism through awareness, education, and community.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Programs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Resources</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Shop</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Educational Materials</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Support Groups</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Events Calendar</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Research</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Subscribe to our newsletter for updates and news.</p>
+                    <form class="space-y-2">
+                        <input
+                            type="email"
+                            placeholder="Your email address"
+                            class="w-full px-4 py-2 rounded-md bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-autism-blue"
+                        />
+                        <button
+                            type="submit"
+                            class="w-full px-4 py-2 bg-autism-blue text-white rounded-md hover:bg-opacity-90 transition-colors"
+                        >
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-400 text-sm">
+                <p>&copy; <span id="current-year"></span> Autism Foundation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="scripts.js"></script>
+</body>
 </html>
