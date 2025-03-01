@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,6 +54,7 @@
             <div class="hidden md:flex items-center space-x-8">
                 <a href="/" class="story-link text-gray-800 font-medium">Home</a>
                 <a href="/" class="story-link text-gray-800 font-medium">About</a>
+                <a href="#our-school" class="story-link text-gray-800 font-medium">Our School</a>
                 <a href="/" class="story-link text-gray-800 font-medium">Resources</a>
                 <a href="/" class="story-link text-gray-800 font-medium">Shop</a>
                 <a href="/" class="story-link text-gray-800 font-medium">Contact</a>
@@ -108,6 +108,174 @@
                 <path d="M0,96L80,85.3C160,75,320,53,480,53.3C640,53,800,75,960,80C1120,85,1280,75,1360,69.3L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z" 
                     fill="#FFFFFF"/>
             </svg>
+        </div>
+    </section>
+
+    <!-- Our School Section -->
+    <section id="our-school" class="py-20 bg-white" style="background: linear-gradient(to bottom, #ffffff, #f2e9ff, #ffffff)">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate-fade-in">
+                <div class="inline-block px-3 py-1 mb-4 rounded-full bg-autism-softBlue text-sm font-medium text-autism-blue">
+                    Education for All
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our School</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    We provide specialized education tailored to the needs of children across the autism spectrum, fostering a supportive environment where every child can thrive.
+                </p>
+            </div>
+            
+            <div class="relative px-4 animate-fade-in">
+                <!-- Slider navigation -->
+                <button 
+                    id="prev-school-slide"
+                    class="absolute left-0 top-1/2 z-10 -translate-y-1/2 -translate-x-4 md:-translate-x-6 w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-lg opacity-50 cursor-not-allowed"
+                    aria-label="Previous slide"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-gray-700">
+                        <path d="m15 18-6-6 6-6"/>
+                    </svg>
+                </button>
+                
+                <button 
+                    id="next-school-slide"
+                    class="absolute right-0 top-1/2 z-10 -translate-y-1/2 translate-x-4 md:translate-x-6 w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-lg opacity-100 hover:bg-gray-50"
+                    aria-label="Next slide"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-gray-700">
+                        <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                </button>
+                
+                <!-- School features slider -->
+                <div class="overflow-hidden" id="school-slider-container">
+                    <div 
+                        class="flex transition-transform duration-500 ease-in-out"
+                        id="school-slider-track"
+                    >
+                        <!-- Feature 1 -->
+                        <div class="w-full md:w-1/2 xl:w-1/3 flex-shrink-0 px-4" style="flex: 0 0 100%;">
+                            <div class="bg-white rounded-xl shadow-md overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]">
+                                <div class="relative h-48 overflow-hidden">
+                                    <img 
+                                        src="https://images.unsplash.com/photo-1503676382389-4809596d5290" 
+                                        alt="Specialized Curriculum"
+                                        class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                                    />
+                                    <div class="absolute top-4 left-4 px-3 py-1 rounded-full bg-autism-blue/90 text-white text-xs font-medium">
+                                        Education
+                                    </div>
+                                </div>
+                                
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-3 text-gray-800">Specialized Curriculum</h3>
+                                    <p class="text-gray-600 mb-5 line-clamp-3">
+                                        Our curriculum is specially designed to meet the unique needs of children with autism, focusing on both academic and social development.
+                                    </p>
+                                    
+                                    <button class="px-5 py-2 rounded-full bg-autism-softBlue text-autism-blue font-medium hover:bg-autism-blue hover:text-white transition-colors">
+                                        Learn More
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Feature 2 -->
+                        <div class="w-full md:w-1/2 xl:w-1/3 flex-shrink-0 px-4" style="flex: 0 0 100%;">
+                            <div class="bg-white rounded-xl shadow-md overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]">
+                                <div class="relative h-48 overflow-hidden">
+                                    <img 
+                                        src="https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b" 
+                                        alt="Trained Faculty"
+                                        class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                                    />
+                                    <div class="absolute top-4 left-4 px-3 py-1 rounded-full bg-autism-blue/90 text-white text-xs font-medium">
+                                        Faculty
+                                    </div>
+                                </div>
+                                
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-3 text-gray-800">Experienced Faculty</h3>
+                                    <p class="text-gray-600 mb-5 line-clamp-3">
+                                        Our teachers are specially trained in autism education and use evidence-based approaches to support each child's learning journey.
+                                    </p>
+                                    
+                                    <button class="px-5 py-2 rounded-full bg-autism-softBlue text-autism-blue font-medium hover:bg-autism-blue hover:text-white transition-colors">
+                                        Meet Our Team
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Feature 3 -->
+                        <div class="w-full md:w-1/2 xl:w-1/3 flex-shrink-0 px-4" style="flex: 0 0 100%;">
+                            <div class="bg-white rounded-xl shadow-md overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]">
+                                <div class="relative h-48 overflow-hidden">
+                                    <img 
+                                        src="https://images.unsplash.com/photo-1610500796385-3ffc1ae2fba0" 
+                                        alt="Sensory Classrooms"
+                                        class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                                    />
+                                    <div class="absolute top-4 left-4 px-3 py-1 rounded-full bg-autism-blue/90 text-white text-xs font-medium">
+                                        Facilities
+                                    </div>
+                                </div>
+                                
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-3 text-gray-800">Sensory-Friendly Classrooms</h3>
+                                    <p class="text-gray-600 mb-5 line-clamp-3">
+                                        Our specially designed classrooms cater to sensory needs, providing a comfortable and supportive learning environment.
+                                    </p>
+                                    
+                                    <button class="px-5 py-2 rounded-full bg-autism-softBlue text-autism-blue font-medium hover:bg-autism-blue hover:text-white transition-colors">
+                                        Tour Our Facilities
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Feature 4 -->
+                        <div class="w-full md:w-1/2 xl:w-1/3 flex-shrink-0 px-4" style="flex: 0 0 100%;">
+                            <div class="bg-white rounded-xl shadow-md overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]">
+                                <div class="relative h-48 overflow-hidden">
+                                    <img 
+                                        src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b" 
+                                        alt="Individual Attention"
+                                        class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                                    />
+                                    <div class="absolute top-4 left-4 px-3 py-1 rounded-full bg-autism-blue/90 text-white text-xs font-medium">
+                                        Approach
+                                    </div>
+                                </div>
+                                
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-3 text-gray-800">Individualized Learning</h3>
+                                    <p class="text-gray-600 mb-5 line-clamp-3">
+                                        We believe in personalized education plans that address each student's unique strengths, challenges, and learning style.
+                                    </p>
+                                    
+                                    <button class="px-5 py-2 rounded-full bg-autism-softBlue text-autism-blue font-medium hover:bg-autism-blue hover:text-white transition-colors">
+                                        Our Approach
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slider indicators -->
+                <div class="flex justify-center mt-8 space-x-2" id="school-slider-indicators">
+                    <button class="w-6 h-2.5 rounded-full bg-autism-blue" aria-label="Go to slide 1" data-index="0"></button>
+                    <button class="w-2.5 h-2.5 rounded-full bg-gray-300" aria-label="Go to slide 2" data-index="1"></button>
+                    <button class="w-2.5 h-2.5 rounded-full bg-gray-300" aria-label="Go to slide 3" data-index="2"></button>
+                    <button class="w-2.5 h-2.5 rounded-full bg-gray-300" aria-label="Go to slide 4" data-index="3"></button>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 animate-fade-in">
+                <button class="px-8 py-3 rounded-full bg-gradient-to-r from-autism-blue to-autism-purple text-white font-medium shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1">
+                    Enroll Your Child
+                </button>
+            </div>
         </div>
     </section>
 
