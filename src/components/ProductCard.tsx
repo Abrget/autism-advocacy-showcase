@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProductPopup from "./ProductPopup";
 
 interface ProductCardProps {
@@ -16,7 +16,7 @@ const ProductCard = ({ id, title, price, image, category, description }: Product
   const [showPopup, setShowPopup] = useState(false);
   
   // Auto-popup for the first product card (id === 1) when page loads
-  useState(() => {
+  useEffect(() => {
     if (id === 1) {
       // Small delay to ensure components are mounted
       const timer = setTimeout(() => {
