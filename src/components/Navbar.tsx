@@ -20,6 +20,13 @@ const Navbar = () => {
     setShowDonateForm(true);
   };
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out px-6 py-4 ${scrolled ? "bg-white/95 backdrop-blur-sm shadow-sm" : "bg-transparent"}`}>
@@ -31,6 +38,12 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-8">
             <Link to="/" className="story-link text-gray-800 font-medium">Home</Link>
             <Link to="/" className="story-link text-gray-800 font-medium">About</Link>
+            <button 
+              onClick={() => scrollToSection('our-school')} 
+              className="story-link text-gray-800 font-medium"
+            >
+              Our School
+            </button>
             <Link to="/" className="story-link text-gray-800 font-medium">Resources</Link>
             <Link to="/" className="story-link text-gray-800 font-medium">Shop</Link>
             <Link to="/" className="story-link text-gray-800 font-medium">Contact</Link>
